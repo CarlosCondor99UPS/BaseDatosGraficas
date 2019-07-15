@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1bedfe01-6cab-40f1-b99f-e13abdd27d9a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="DIR_CEDULA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PER_NOMBRE" class="java.lang.String"/>
+	<parameter name="PER_GENERO" class="java.lang.String"/>
+	<parameter name="PER_APELLIDO" class="java.lang.String"/>
+	<parameter name="PER_SALARIO" class="java.lang.String"/>
+	<parameter name="PER_EDAD" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM "DIRECCION" WHERE "DIR_CEDULA"=$P{DIR_CEDULA}]]>
+	</queryString>
+	<field name="DIR_CALLE_PRINCIPAL" class="java.lang.String"/>
+	<field name="DIR_CALLE_SECUNDARIA" class="java.lang.String"/>
+	<field name="DIR_NUMERO" class="java.math.BigDecimal"/>
+	<field name="DIR_CEDULA" class="java.lang.String"/>
+	<field name="DIR_CODIGO" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="179" y="0" width="183" height="33" forecolor="#000000" uuid="e6fe1c3f-a027-4fa5-9667-6bdbcd495108"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[DIRECCIONES]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="63" y="45" width="83" height="15" uuid="8411926a-9ea9-4057-af53-940a40affab4"/>
+				<textFieldExpression><![CDATA[$F{DIR_CEDULA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="3" y="45" width="60" height="15" uuid="7f849a17-19c0-48c4-8e68-867054e66582"/>
+				<text><![CDATA[CEDULA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="146" y="45" width="60" height="15" uuid="5639805d-0b1a-4e67-8019-b62535e0804f"/>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="209" y="45" width="153" height="15" uuid="420cf954-cfa4-4398-be42-34eee342af82"/>
+				<textFieldExpression><![CDATA[$P{PER_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="3" y="60" width="60" height="15" uuid="1dfa7fd3-dd09-4d52-a400-9aa2970c82da"/>
+				<text><![CDATA[GENERO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="63" y="60" width="83" height="15" uuid="137c98d4-d98f-45fd-ab57-222f35b3800f"/>
+				<textFieldExpression><![CDATA[$P{PER_GENERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="362" y="45" width="140" height="15" uuid="9214090d-7d9c-4a7e-8094-a63b94fc8ea7"/>
+				<textFieldExpression><![CDATA[$P{PER_APELLIDO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="146" y="60" width="60" height="15" uuid="3ad1d524-77e3-469c-a8cc-3fe490b446c9"/>
+				<text><![CDATA[SALARIO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="209" y="60" width="153" height="15" uuid="cb56020d-66df-4533-8991-d3e56626e1c6"/>
+				<textFieldExpression><![CDATA[$P{PER_SALARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="362" y="60" width="39" height="15" uuid="51bb3f99-747d-4540-9c2c-29f2e72efcde"/>
+				<text><![CDATA[EDAD:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="402" y="60" width="100" height="15" uuid="c90f755a-094f-448a-af4c-1fe797e3b7fd"/>
+				<textFieldExpression><![CDATA[$P{PER_EDAD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement style="Detail" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="3b945dbf-52cd-4f35-b70a-d912320171f1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="109" y="19" width="139" height="15" uuid="9c9a4658-016a-4ed4-8954-37dac2ed54d4"/>
+				<text><![CDATA[CALLE PRINCIPAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="248" y="19" width="194" height="15" uuid="0c0a84eb-749b-4c79-90b6-f8817f17c9ab"/>
+				<text><![CDATA[CALLE SECUNDARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="20" width="111" height="15" uuid="9d5ae4cd-bd69-4ebd-83bb-0b1898cdc51c"/>
+				<text><![CDATA[NUMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="3" y="19" width="111" height="15" uuid="841decc8-f9bc-419b-93c7-483f360a8518"/>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement style="Detail" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="28f1c028-c3c0-4e02-a472-7e41ed0add79"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="109" y="1" width="139" height="15" uuid="7595883a-9452-4e0c-b3bb-ba6d7c7238e1"/>
+				<textFieldExpression><![CDATA[$F{DIR_CALLE_PRINCIPAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="442" y="0" width="111" height="15" uuid="d0bb4c64-8a37-4d08-aa2e-14b8c5a4b2aa"/>
+				<textFieldExpression><![CDATA[$F{DIR_NUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="f9ddc2ce-08e7-4ea6-b622-ea9c54319299"/>
+				<textFieldExpression><![CDATA[$F{DIR_CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="250" y="1" width="194" height="15" uuid="9e7c097f-9772-451c-b04e-8d6b4c67092b"/>
+				<textFieldExpression><![CDATA[$F{DIR_CALLE_SECUNDARIA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="275" splitType="Stretch">
+			<line>
+				<reportElement style="Detail" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="926c64e6-1060-402c-b75b-450adea18041"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="433" y="0" width="80" height="20" uuid="29b956b0-9bed-4b8a-ae6a-83c81ee1ef02"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Detail" x="513" y="0" width="40" height="20" uuid="e789e772-aa22-4ac0-9167-518701d6d116"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Detail" x="0" y="0" width="197" height="20" uuid="6906ef8a-dec3-4496-9741-0e7d947385d8"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
